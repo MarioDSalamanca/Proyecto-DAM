@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import styles from "../../style/Estilos";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Login() {
   return (
-    <View style={styles.login}>
-      <Text>Hola</Text>
+    <View style={styles.ViewLogin}>
+      <Text style={styles.login}></Text>
     </View>
   );
 }
