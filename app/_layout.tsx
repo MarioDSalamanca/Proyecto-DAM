@@ -54,7 +54,7 @@ export default function Layout() {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <StatusBar style="light" />
       <Stack
         screenOptions={({ route }) => ({
