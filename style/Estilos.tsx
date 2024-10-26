@@ -1,13 +1,4 @@
-import { ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
-
-interface BackgroundProps {
-  children: ReactNode;
-}
-
-const Background: React.FC<BackgroundProps> = ({ children }) => {
-  return <View style={styles.container}>{children}</View>;
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -20,12 +11,17 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#303030",
   },
   login: {
-    width: 200,
+    width: 270,
     height: 400,
-    backgroundColor: "red",
+    backgroundColor: "white",
+    borderWidth: 2,
+    borderColor: "red",
+    borderRadius: 10,
+    padding: 10,
   }
 });
 
-export { Background, styles };
+export { styles };

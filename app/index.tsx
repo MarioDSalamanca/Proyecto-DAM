@@ -1,11 +1,11 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import Login from "./(login)/login";
-import styles from "../style/Estilos";
+import { styles } from "../style/Estilos";
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Login />
+      <Text>Esto es el index</Text>
     </View>
   );
 }

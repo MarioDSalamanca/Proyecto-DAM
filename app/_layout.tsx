@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Mis archivos
-import {styles, Background} from "../style/Estilos";
+import { styles } from "../style/Estilos";
 
 export default function Layout() {
 
@@ -55,7 +55,6 @@ export default function Layout() {
 
   return (
     <View style={styles.container}>
-      <Background>
       <StatusBar style="light" />
       <Stack
         screenOptions={({ route }) => ({
@@ -68,7 +67,6 @@ export default function Layout() {
           headerTitleAlign: "center",
         })}
       />
-      </Background>
     </View>
   );
 }
