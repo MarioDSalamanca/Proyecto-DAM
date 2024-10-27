@@ -8,44 +8,44 @@ import Animated, {
 } from 'react-native-reanimated';
 
 const InicioSesion = ({ vuelta }) => {
-    return (
-      <View style={styles.login}>
-        <Text style={styles.h2Login}>Nombre de usuario:</Text>
-        <TextInput style={styles.inputsLogin} />
-        <Text style={styles.h2Login}>Contraseña:</Text>
-        <TextInput style={styles.inputsLogin} secureTextEntry />
-        <Pressable style={styles.botonIniciarSesion}>
-          <Text style={styles.textoIniciarSesion}>Iniciar Sesión</Text>
+  return (
+    <View style={styles.login}>
+      <Text style={styles.h2Login}>Nombre de usuario:</Text>
+      <TextInput style={styles.inputsLogin} />
+      <Text style={styles.h2Login}>Contraseña:</Text>
+      <TextInput style={styles.inputsLogin} secureTextEntry />
+      <Pressable style={styles.botonIniciarSesion}>
+        <Text style={styles.textoIniciarSesion}>Iniciar Sesión</Text>
+      </Pressable>
+      <Text style={{ textAlign: "center", marginVertical: 10, color: "red" }}>o</Text>
+      <View style={{ alignItems: "center" }}>
+        <Pressable style={styles.botonRegistrarse} onPress={vuelta}>
+          <Text style={styles.textoRegistrarse}>Registrate</Text>
         </Pressable>
-        <Text style={{ textAlign: "center", marginVertical: 10, color: "red" }}>o</Text>
-        <View style={{ alignItems: "center" }}>
-          <Pressable style={styles.botonRegistrarse} onPress={vuelta}>
-            <Text style={styles.textoRegistrarse}>Registrate</Text>
-          </Pressable>
-        </View>
       </View>
-    );
-  };
+    </View>
+  );
+};
 
-  const Registrate = ({ vuelta }) => {
-    return (
-      <View style={styles.login}>
-        <Text style={styles.h2Login}>Nombre de usuario:</Text>
-        <TextInput style={styles.inputsLogin} />
-        <Text style={styles.h2Login}>Contraseña:</Text>
-        <TextInput style={styles.inputsLogin} secureTextEntry />
-        <Pressable style={styles.botonIniciarSesion}>
-          <Text style={styles.textoIniciarSesion}>Registrate</Text>
+const Registrate = ({ vuelta }) => {
+  return (
+    <View style={styles.login}>
+      <Text style={styles.h2Login}>Nombre de usuario:</Text>
+      <TextInput style={styles.inputsLogin} />
+      <Text style={styles.h2Login}>Contraseña:</Text>
+      <TextInput style={styles.inputsLogin} secureTextEntry />
+      <Pressable style={styles.botonIniciarSesion}>
+        <Text style={styles.textoIniciarSesion}>Registrate</Text>
+      </Pressable>
+      <Text style={{ textAlign: "center", marginVertical: 10, color: "red" }}>o</Text>
+      <View style={{ alignItems: "center" }}>
+        <Pressable style={styles.botonRegistrarse} onPress={vuelta}>
+          <Text style={styles.textoRegistrarse}>Iniciar Sesión</Text>
         </Pressable>
-        <Text style={{ textAlign: "center", marginVertical: 10, color: "red" }}>o</Text>
-        <View style={{ alignItems: "center" }}>
-          <Pressable style={styles.botonRegistrarse} onPress={vuelta}>
-            <Text style={styles.textoRegistrarse}>Iniciar Sesión</Text>
-          </Pressable>
-        </View>
       </View>
-    );
-  };
+    </View>
+  );
+};
 
 const FlipCard = ({
   isFlipped,
@@ -84,16 +84,14 @@ const FlipCard = ({
         style={[
           flipCardStyles.regularCard,
           inicioSesionAnimatedStyle,
-        ]}
-        pointerEvents={isFlipped.value ? 'none' : 'auto'}>
+        ]}>
         {InicioSesion}
       </Animated.View>
       <Animated.View
         style={[
           flipCardStyles.flippedCard,
           RegistrateAnimatedStyle,
-        ]}
-        pointerEvents={isFlipped.value ? 'auto' : 'none'}>
+        ]}>
         {Registrate}
       </Animated.View>
     </View>
