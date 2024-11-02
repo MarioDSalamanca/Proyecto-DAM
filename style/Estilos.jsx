@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
     },
     login: {
       width: 300,
-      height: 400,
+      height: 'auto',
       backgroundColor: "white",
       borderWidth: 1,
       borderColor: "red",
       borderRadius: 5,
+      paddingVertical: 5,
       paddingHorizontal: 20,
     },
     h2Login: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
       fontStyle: "italic",
       color: "red",
       fontWeight: "500",
-      marginTop: 40,
+      marginTop: 20,
     },
     inputsLogin: {
       borderBottomWidth: 1,
@@ -44,11 +45,10 @@ const styles = StyleSheet.create({
     },
     botonIniciarSesion: {
       backgroundColor: "red",
-      marginTop: 60,
+      marginTop: 40,
       padding: 5,
       textAlign: "center",
       borderRadius: 3,
-
     },
     textoIniciarSesion: {
       textAlign: "center",
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
       borderRadius: 3,
       borderWidth: 1,
       borderColor: "red",
+      marginBottom: 20,
     },
     textoRegistrarse: {
       textAlign: "center",

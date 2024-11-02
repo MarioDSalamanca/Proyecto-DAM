@@ -34,6 +34,8 @@ const Registrate = ({ vuelta }) => {
       <TextInput style={styles.inputsLogin} />
       <Text style={styles.h2Login}>Contraseña:</Text>
       <TextInput style={styles.inputsLogin} secureTextEntry />
+      <Text style={styles.h2Login}>Confirmar contraseña:</Text>
+      <TextInput style={styles.inputsLogin} secureTextEntry />
       <Pressable style={styles.botonIniciarSesion}>
         <Text style={styles.textoIniciarSesion}>Registrate</Text>
       </Pressable>
@@ -50,31 +52,35 @@ const Registrate = ({ vuelta }) => {
 const FlipCard = ({
   isFlipped,
   direction = 'y',
-  duration = 1000,
+  duration = 500,
   InicioSesion,
   Registrate,
 }) => {
   const isDirectionX = direction === 'x';
 
   const inicioSesionAnimatedStyle = useAnimatedStyle(() => {
-    const spinValue = interpolate(Number(isFlipped.value), [0, 1], [0, 180]);
+    const spinValue = interpolate(Number(isFlipped.value), [0, 1], [0, 90]);
     const rotateValue = withTiming(`${spinValue}deg`, { duration });
 
     return {
       transform: [
         isDirectionX ? { rotateX: rotateValue } : { rotateY: rotateValue },
       ],
+      opacity: isFlipped.value ? 0 : 1,
+      pointerEvents: isFlipped.value ? 'none' : 'auto',
     };
   });
 
   const RegistrateAnimatedStyle = useAnimatedStyle(() => {
-    const spinValue = interpolate(Number(isFlipped.value), [0, 1], [180, 360]);
+    const spinValue = interpolate(Number(isFlipped.value), [0, 1], [270, 360]);
     const rotateValue = withTiming(`${spinValue}deg`, { duration });
 
     return {
       transform: [
         isDirectionX ? { rotateX: rotateValue } : { rotateY: rotateValue },
       ],
+      opacity: isFlipped.value ? 1 : 0,
+      pointerEvents: isFlipped.value ? 'auto' : 'none',
     };
   });
 
