@@ -1,56 +1,56 @@
 import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Pressable, View, Text } from "react-native";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-// Mis archivos
-import { styles } from "../style/Estilos";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function Layout() {
 
-  // Utilizar el Hook useRouter para manejar las vistas
-  // Utilizar useState para manejar los estados de auth
   const router = useRouter();
-  const [auth, setAuth] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [menu, setMenu] = useState(false);
 
   // Cuando se inicie la vista se ejecutará el useEffect una vez para comprobar la autenticación
   useEffect(() => {
+    
     const comprobarAuth = async () => {
       try {
         // AsyncStorage es para acceder al almacenamiento local persistente
         const token = await AsyncStorage.getItem("authToken");
-        if (token) {
-          setAuth(true);
-        } else {
-          setAuth(false);
+        if (!token) {
+          router.replace("/");
         }
       } catch (error) {
-        console.error("Error al verificar autenticación:", error);
-        setAuth(false);
+        console.error("Error al comprobar la autenticación:", error);
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     comprobarAuth();
-  
+
   }, []);
- 
-  // Redirigir si auth es false cuando cambie el estado de auth y cuando acabe de cargar el login
-  useEffect(() => {
-    if (!loading && !auth) {
-      router.replace("/login");
-    }
-  }, [auth, loading]);
 
   if (loading) {
+    // Mostrar un indicador de carga mientras se valida el token
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#DDDDDD" />
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#303030" }}>
+        <ActivityIndicator size="100" color="red" />
       </View>
     );
+  }
+
+  function mostrarMenu() {
+    setMenu(!menu);
+    if (menu) {
+      
+    }
+  }
+
+  const logout = async () => {
+    await AsyncStorage.removeItem("authToken");
+    router.replace("/");
   }
 
   return (
@@ -58,15 +58,33 @@ export default function Layout() {
       <StatusBar style="light" />
       <Stack
         screenOptions={({ route }) => ({
-          headerShown: route.name === "login",
+          headerShown: route.name === "home",
           headerStyle: {
             backgroundColor: "#303030",
           },
-          headerTintColor: "white",
+          headerTintColor: "red",
           headerTitle: "VitalPower",
           headerTitleAlign: "center",
+          headerLeft: () => (
+            <Pressable onPress={mostrarMenu}>
+              <MaterialCommunityIcons name="menu" size={24} color="red" />
+            </Pressable>
+          ),
+          headerRight: () => (
+            <Pressable onPress={logout}>
+              <MaterialCommunityIcons name="logout" size={24} color="red" />
+            </Pressable>
+          ),
         })}
       />
+      {menu && (
+        <View style={{ position: "absolute", width: "70%", height: "100%", backgroundColor: "#DDDDDD", zIndex: 10 }}>
+          <Pressable onPress={mostrarMenu} style={{ marginTop: 30 }}>
+            <MaterialCommunityIcons name="keyboard-backspace" size={24} color="black" />
+          </Pressable>
+          <Text style={{ padding: 10 }}>Menú lateral</Text>
+        </View>
+      )}
     </View>
   );
 }
