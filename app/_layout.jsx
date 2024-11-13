@@ -4,6 +4,8 @@ import { ActivityIndicator, Pressable, View, Text } from "react-native";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { SafeAreaView } from "react-native-safe-area-context";
+import Menu from "./components/menu";
 
 export default function Layout() {
 
@@ -43,9 +45,6 @@ export default function Layout() {
 
   function mostrarMenu() {
     setMenu(!menu);
-    if (menu) {
-      
-    }
   }
 
   const logout = async () => {
@@ -54,37 +53,34 @@ export default function Layout() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={({ route }) => ({
-          headerShown: route.name === "home",
-          headerStyle: {
-            backgroundColor: "#303030",
-          },
-          headerTintColor: "red",
-          headerTitle: "VitalPower",
-          headerTitleAlign: "center",
-          headerLeft: () => (
-            <Pressable onPress={mostrarMenu}>
-              <MaterialCommunityIcons name="menu" size={24} color="red" />
-            </Pressable>
-          ),
-          headerRight: () => (
-            <Pressable onPress={logout}>
-              <MaterialCommunityIcons name="logout" size={24} color="red" />
-            </Pressable>
-          ),
-        })}
-      />
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar style="light" backgroundColor="black" />
+      <Pressable style={{ flex: 1 }} onPress={() => { menu ? mostrarMenu() : null; }}>
+        <Stack
+          screenOptions={({ route }) => ({
+            headerShown: route.name !== "(login)/index",
+            headerStyle: {
+              backgroundColor: "#303030",
+            },
+            headerTintColor: "red",
+            headerTitle: "VitalPower",
+            headerTitleAlign: "center",
+            headerLeft: () => (
+              <Pressable onPress={mostrarMenu}>
+                <MaterialCommunityIcons name="menu" size={24} color="red" />
+              </Pressable>
+            ),
+            headerRight: () => (
+              <Pressable onPress={logout}>
+                <MaterialCommunityIcons name="logout" size={24} color="red" />
+              </Pressable>
+            ),
+          })}
+        />
+      </Pressable>
       {menu && (
-        <View style={{ position: "absolute", width: "70%", height: "100%", backgroundColor: "#DDDDDD", zIndex: 10 }}>
-          <Pressable onPress={mostrarMenu} style={{ marginTop: 30 }}>
-            <MaterialCommunityIcons name="keyboard-backspace" size={24} color="black" />
-          </Pressable>
-          <Text style={{ padding: 10 }}>Menú lateral</Text>
-        </View>
+        <Menu mostrarMenu={mostrarMenu}/>
       )}
-    </View>
+    </SafeAreaView>
   );
 }

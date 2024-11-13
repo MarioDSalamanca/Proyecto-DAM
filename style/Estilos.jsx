@@ -3,10 +3,12 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: 10,
     backgroundColor: "#303030",
   },
+
   // Login
+
     viewLogin: {
       alignItems: "center",
       marginTop: 150,
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
       fontStyle: "italic",
     },
     login: {
-      width: 300,
+      width: 320,
       height: 'auto',
       backgroundColor: "white",
       borderWidth: 1,
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20,
     },
     h2Login: {
-      fontSize: 18,
+      fontSize: 20,
       fontStyle: "italic",
       color: "red",
       fontWeight: "500",
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
       borderBottomColor: "grey",
       paddingTop: 5,
       paddingLeft: 5,
-      fontSize: 15,
+      fontSize: 18,
       fontStyle: "italic",
     },
     botonIniciarSesion: {
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     },
     textoIniciarSesion: {
       textAlign: "center",
-      fontSize: 15,
+      fontSize: 20,
       fontWeight: "500",
       fontStyle: "italic",
       color: "white",
@@ -70,11 +72,32 @@ const styles = StyleSheet.create({
     },
     textoRegistrarse: {
       textAlign: "center",
-      fontSize: 12,
+      fontSize: 15,
       fontWeight: "500",
       fontStyle: "italic",
       color: "red",
     },
+
+  // Menú
+
+    menu: {
+      position: "absolute",
+      width: "70%",
+      height: "120%",
+      backgroundColor: "#DDDDDD",
+      zIndex: 10,
+      paddingVertical: 40,
+      paddingHorizontal: 10,
+      flexDirection: "column",
+    },
+    cabeceraMenu: {
+      flexDirection: "row",
+    },
+    cerrarMenu: {
+      backgroundColor: "red",
+      color: "000",
+      borderRadius: 50,
+    }
 });
 
 export { styles };

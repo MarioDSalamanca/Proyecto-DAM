@@ -4,6 +4,7 @@ export const useAuth = {
   login: async (usuario, clave) => {
     return new Promise((exito, error) => {
       if (usuario == 'Mario' && clave == 'Mario.rlv') {
+        AsyncStorage.setItem('usuario', usuario);
         const token = 'authToken';
         AsyncStorage.setItem('authToken', token)
           .then(() => exito(token))
