@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
 
     viewLogin: {
       alignItems: "center",
-      marginTop: 150,
+      marginTop: 120,
     },
     h1Login: {
       color: "red",
-      fontSize: 40,
-      marginBottom: 40,
+      fontSize: 45,
+      marginBottom: 60,
       fontWeight: "700",
       letterSpacing: 2,
       fontStyle: "italic",
@@ -82,21 +82,43 @@ const styles = StyleSheet.create({
 
     menu: {
       position: "absolute",
-      width: "70%",
+      width: "80%",
       height: "120%",
-      backgroundColor: "#DDDDDD",
+      backgroundColor: "black",
       zIndex: 10,
-      paddingVertical: 40,
-      paddingHorizontal: 10,
+      paddingVertical: 60,
+      paddingHorizontal: 25,
       flexDirection: "column",
     },
     cabeceraMenu: {
       flexDirection: "row",
+      alignItems: "center",
     },
-    cerrarMenu: {
-      backgroundColor: "red",
-      color: "000",
+    cabeceraIcono: {
+      backgroundColor: "white",
       borderRadius: 50,
+      padding: 2,
+    },
+    cabeceraUsuario: {
+      color: "white",
+      margin: "auto",
+      fontWeight: "500",
+      fontSize: 22,
+    },
+    cerrarMenu: {},
+    linksMenu: {
+      flexDirection: "column",
+      paddingVertical: 40,
+    },
+    cajaLinksMenu: {
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+      borderColor: "white",
+    },
+    linkMenu: {
+      padding: 20,
+      color: "white",
+      fontSize: 15,
     }
 });
 

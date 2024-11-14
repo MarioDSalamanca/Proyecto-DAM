@@ -1,4 +1,4 @@
-import { Stack, useRouter } from "expo-router";
+import { Stack, Tabs, router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, Pressable, View, Text } from "react-native";
 import { useEffect, useState } from "react";
@@ -9,7 +9,6 @@ import Menu from "./components/menu";
 
 export default function Layout() {
 
-  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [menu, setMenu] = useState(false);
 
@@ -61,10 +60,16 @@ export default function Layout() {
             headerShown: route.name !== "(login)/index",
             headerStyle: {
               backgroundColor: "#303030",
+              paddingTop: 0,
             },
-            headerTintColor: "red",
-            headerTitle: "VitalPower",
             headerTitleAlign: "center",
+            headerTitle: () => (
+              <Pressable onPress={ () => router.replace('/home') }>
+                <Text style={{ color: "red", fontSize: 20, fontWeight: "500", letterSpacing: 1 }}>
+                  VitalPower
+                </Text>
+              </Pressable>              
+            ),
             headerLeft: () => (
               <Pressable onPress={mostrarMenu}>
                 <MaterialCommunityIcons name="menu" size={24} color="red" />
