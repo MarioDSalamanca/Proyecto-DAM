@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { SafeAreaView } from "react-native-safe-area-context";
-import Menu from "./components/menu";
+import Menu from "./menu";
 
 export default function Layout() {
 

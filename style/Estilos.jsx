@@ -119,6 +119,34 @@ const styles = StyleSheet.create({
       padding: 20,
       color: "white",
       fontSize: 15,
+    },
+
+  // Home
+
+    homeLayout: {
+      flex: 1,
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+      padding: 10,
+    },
+    homeLayouts: {
+      width: "45%",
+      height: "20%",
+      backgroundColor: "red",
+      padding: 15,
+      marginVertical: 15,
+      borderWidth: 1.5,
+      borderColor: "black",
+      borderRadius: 5,
+    },
+    textoHome: {
+      fontWeight: "500",
+      fontSize: 15,
+      color: 'white',
+      textShadowColor: 'black',
+      textShadowOffset: { width: 2, height: 2 },
+      textShadowRadius: 1,      
     }
 });
 

@@ -144,7 +144,6 @@ export default function Index() {
       if (usuario?.trim().length > 3 && clave?.trim().length > 6) {
         useAuth.login(usuario, clave)
         .then(() => {
-          alert('Inicio de sesión exitoso');
           router.replace('/home');
         })
         .catch(err => {
