@@ -6,9 +6,11 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../Hooks/useAuth";
 import { router } from "expo-router";
+import consultas from "../../database/db";
+
 
 // Funciones y constantes para el efecto visual del login
 const InicioSesion = ({ vuelta, validar, setUsuario, setClave, usuario, clave }) => {
@@ -124,6 +126,11 @@ const FlipCard = ({
 // Componente del Login, 
 
 export default function Index() {
+
+  // Inicializar la bbdd 
+  useEffect(() => {
+    consultas.create();
+  }, []);
 
   // Función para manejar el inicio de sesión o el registro
   // Hooks para manejar los datos de los formularios
