@@ -61,7 +61,7 @@ const consultas = {
 /* HAY QUE VER ESTO */
 
 
-  // Función para insertar usuarios (esto ya no se ejecutará durante la creación)
+ /* // Función para insertar usuarios (esto ya no se ejecutará durante la creación)
   insert: (usuario) => {
     return new Promise((resolve, reject) => {
       const { nombre, clave, edad, peso, altura, genero } = usuario;
@@ -137,7 +137,7 @@ const consultas = {
         );
       });
     });
-  }
+  }*/
 };
 
 export default consultas;
