@@ -9,7 +9,7 @@ import Animated, {
 import { useEffect, useState } from "react";
 import { useAuth } from "../Hooks/useAuth";
 import { router } from "expo-router";
-import consultas from "../../database/db";
+//import consultas from "../../database/db";
 
 
 // Funciones y constantes para el efecto visual del login
@@ -128,9 +128,9 @@ const FlipCard = ({
 export default function Index() {
 
   // Inicializar la bbdd 
-  useEffect(() => {
+  /*useEffect(() => {
     consultas.create();
-  }, []);
+  }, []);*/
 
   // Función para manejar el inicio de sesión o el registro
   // Hooks para manejar los datos de los formularios
